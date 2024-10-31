@@ -1,15 +1,9 @@
-set(VAR_cmake_version 3.12)
-set(VAR_project_name "EzExampleCmakeLibrary")
-##X
-option(OPT_IS_ENABLE_GTEST "" OFF)
+###
+set(VAR_project_name "${VAR_package_name}-CxxLibrary")
 
 ###
 cmake_minimum_required(VERSION "${VAR_cmake_version}")
 project("${VAR_project_name}")
-
-###
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ###
 file(GLOB_RECURSE ARR_cxx_src "${PROJECT_SOURCE_DIR}/cxx_src/*.cxx")
@@ -25,8 +19,8 @@ target_include_directories(
   "${VAR_project_name}" PUBLIC
   "${ARR_cxx_include}"
 )
-
-###
-if(EXISTS "${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
-  include("${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
-endif()
+##X
+target_link_libraries(
+  "${VAR_project_name}" PUBLIC
+  "${VAR_package_name}-INTERFACE-GlobeInterface"
+)

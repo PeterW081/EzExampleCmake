@@ -40,6 +40,6 @@ target_include_directories(
 )
 
 ###
-if(EXISTS "${PROJECT_SOURCE_DIR}/CMakeLists.txt-Gtest.cmake")
-  include("${PROJECT_SOURCE_DIR}/CMakeLists.txt-Gtest.cmake")
+if(EXISTS "${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
+  include("${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
 endif()
