@@ -18,9 +18,9 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/sub_exec-CxxExecute/")
 add_subdirectory("${PROJECT_SOURCE_DIR}/sub_libx-CxxLibrary/")
 
 ###
-if(OPT_IS_ENABLE_GTEST AND EXISTS "${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
+if(EXISTS "${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
   include("${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
 endif()
-if(OPT_IS_ENABLE_GTEST AND EXISTS "${PROJECT_SOURCE_DIR}/sub_test-Gtest/")
+if(EXISTS "${PROJECT_SOURCE_DIR}/sub_test-Gtest/")
   add_subdirectory("${PROJECT_SOURCE_DIR}/sub_test-Gtest/")
 endif()

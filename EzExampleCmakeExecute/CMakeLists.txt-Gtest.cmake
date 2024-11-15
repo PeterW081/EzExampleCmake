@@ -7,31 +7,40 @@ if(OPT_IS_ENABLE_GTEST)
   file(GLOB_RECURSE ARR_cxx_src_gtest "${PROJECT_SOURCE_DIR}/cxx_xxx_gtest/*.cxx")
   list(APPEND ARR_cxx_include_gtest "${PROJECT_SOURCE_DIR}/cxx_xxx_gtest/")
   add_executable(
-    "${VAR_project_name}-TESTEXE-GTest"
+    "0TESTEXE-${VAR_project_name}" EXCLUDE_FROM_ALL
   )
   target_sources(
-    "${VAR_project_name}-TESTEXE-GTest" PUBLIC
+    "0TESTEXE-${VAR_project_name}" PUBLIC
     PRIVATE "${ARR_cxx_src_gtest}"
   )
   target_include_directories(
-    "${VAR_project_name}-TESTEXE-GTest" PUBLIC
+    "0TESTEXE-${VAR_project_name}" PUBLIC
     "${ARR_cxx_include_gtest}"
   )
   target_link_libraries(
-    "${VAR_project_name}-TESTEXE-GTest" PUBLIC
-    "${VAR_project_name}-TESTLIB-GTest"
+    "0TESTEXE-${VAR_project_name}" PUBLIC
+    "0TESTLIB-${VAR_project_name}"
     "${VAR_project_name}-INTERFACE-GTest"
   )
   ##X
+  set_target_properties(
+    "${VAR_project_name}" PROPERTIES
+    ENABLE_EXPORTS ON
+  )
   add_library(
-    "${VAR_project_name}-TESTLIB-GTest" STATIC EXCLUDE_FROM_ALL
+    "0TESTLIB-${VAR_project_name}" STATIC EXCLUDE_FROM_ALL
+  )
+  target_sources(
+    "0TESTLIB-${VAR_project_name}" PUBLIC
+    PRIVATE "$<TARGET_PROPERTY:${VAR_project_name},SOURCES>"
   )
   target_link_libraries(
-    "${VAR_project_name}-TESTLIB-GTest" PUBLIC
-    "${VAR_project_name}-MAINLIB"
+    "0TESTLIB-${VAR_project_name}" PUBLIC
+    "${VAR_project_name}"
+    "$<TARGET_PROPERTY:${VAR_project_name},LINK_LIBRARIES>"
   )
   target_compile_options(
-    "${VAR_project_name}-TESTLIB-GTest" PUBLIC
+    "0TESTLIB-${VAR_project_name}" PUBLIC
     PRIVATE -include "${PROJECT_SOURCE_DIR}/cxx_xxx_gtest/_head_global_include_for_test.h"
   )
 endif()

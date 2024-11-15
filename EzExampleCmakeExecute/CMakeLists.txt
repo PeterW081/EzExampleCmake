@@ -12,30 +12,17 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ###
-add_executable(
-  "${VAR_project_name}-MAINEXE"
-)
-target_link_libraries(
-  "${VAR_project_name}-MAINEXE" PUBLIC
-  "${VAR_project_name}-MAINLIB"
-)
-set_target_properties(
-  "${VAR_project_name}-MAINEXE" PROPERTIES
-  OUTPUT_NAME "${VAR_project_name}"
-)
-
-###
 file(GLOB_RECURSE ARR_cxx_src "${PROJECT_SOURCE_DIR}/cxx_src/*.cxx")
 list(APPEND ARR_cxx_include "${PROJECT_SOURCE_DIR}/cxx_include/")
-add_library(
-  "${VAR_project_name}-MAINLIB" OBJECT
+add_executable(
+  "${VAR_project_name}"
 )
 target_sources(
-  "${VAR_project_name}-MAINLIB" PUBLIC
+  "${VAR_project_name}" PUBLIC
   PRIVATE "${ARR_cxx_src}"
 )
 target_include_directories(
-  "${VAR_project_name}-MAINLIB" PUBLIC
+  "${VAR_project_name}" PUBLIC
   "${ARR_cxx_include}"
 )
 

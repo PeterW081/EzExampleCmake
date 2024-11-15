@@ -7,18 +7,18 @@ if(OPT_IS_ENABLE_GTEST)
   file(GLOB_RECURSE ARR_cxx_src_gtest "${PROJECT_SOURCE_DIR}/cxx_xxx_gtest/*.cxx")
   list(APPEND ARR_cxx_include_gtest "${PROJECT_SOURCE_DIR}/cxx_xxx_gtest/")
   add_executable(
-    "${VAR_project_name}-TESTEXE-GTest"
+    "0TESTEXE-${VAR_project_name}" EXCLUDE_FROM_ALL
   )
   target_sources(
-    "${VAR_project_name}-TESTEXE-GTest" PUBLIC
+    "0TESTEXE-${VAR_project_name}" PUBLIC
     PRIVATE "${ARR_cxx_src_gtest}"
   )
   target_include_directories(
-    "${VAR_project_name}-TESTEXE-GTest" PUBLIC
+    "0TESTEXE-${VAR_project_name}" PUBLIC
     "${ARR_cxx_include_gtest}"
   )
   target_link_libraries(
-    "${VAR_project_name}-TESTEXE-GTest" PUBLIC
+    "0TESTEXE-${VAR_project_name}" PUBLIC
     "${VAR_project_name}"
     "${VAR_project_name}-INTERFACE-GTest"
   )
