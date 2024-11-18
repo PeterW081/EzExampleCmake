@@ -1,4 +1,4 @@
-set(VAR_cmake_version 3.12)
+set(VAR_cmake_version "3.12")
 set(VAR_package_name "EzExampleCmakePackage")
 set(VAR_project_name "${VAR_package_name}")
 ##X

@@ -1,4 +1,4 @@
-set(VAR_cmake_version 3.12)
+set(VAR_cmake_version "3.12")
 set(VAR_project_name "EzExampleCmakeLibrary")
 ##X
 option(OPT_IS_ENABLE_GTEST "" OFF)
