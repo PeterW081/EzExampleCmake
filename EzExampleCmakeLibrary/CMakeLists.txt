@@ -25,8 +25,15 @@ target_include_directories(
   "${VAR_project_name}" PUBLIC
   "${ARR_cxx_include}"
 )
+target_link_libraries(
+  "${VAR_project_name}" PUBLIC
+  "${VAR_project_name}-INTERFACE-GlobeInterface"
+)
 
 ###
-if(EXISTS "${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
-  include("${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
+if(EXISTS "${CMAKE_CURRENT_LIST_FILE}-02Gtest.cmake")
+  include("${CMAKE_CURRENT_LIST_FILE}-02Gtest.cmake")
 endif()
+include("${CMAKE_CURRENT_LIST_FILE}-01GlobeInterface.cmake")
+include("${CMAKE_SOURCE_DIR}/_deps/_include.cmake")
+

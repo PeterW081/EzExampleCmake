@@ -13,14 +13,11 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ###
-include("${CMAKE_CURRENT_LIST_FILE}+01GlobeInterface.cmake")
 add_subdirectory("${PROJECT_SOURCE_DIR}/sub_exec-CxxExecute/")
 add_subdirectory("${PROJECT_SOURCE_DIR}/sub_libx-CxxLibrary/")
+add_subdirectory("${PROJECT_SOURCE_DIR}/sub_test-Gtest/")
+##X
+include("${CMAKE_CURRENT_LIST_FILE}-02Gtest.cmake")
+include("${CMAKE_CURRENT_LIST_FILE}-01GlobeInterface.cmake")
+include("${CMAKE_SOURCE_DIR}/_deps/_include.cmake")
 
-###
-if(EXISTS "${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
-  include("${CMAKE_CURRENT_LIST_FILE}-Gtest.cmake")
-endif()
-if(EXISTS "${PROJECT_SOURCE_DIR}/sub_test-Gtest/")
-  add_subdirectory("${PROJECT_SOURCE_DIR}/sub_test-Gtest/")
-endif()

@@ -4,7 +4,7 @@ set(VAR_project_name "0TESTEXE-${VAR_package_name}")
 ###
 cmake_minimum_required(VERSION "${VAR_cmake_version}")
 project("${VAR_project_name}")
-if(NOT TARGET "${VAR_package_name}-INTERFACE-GTest")
+if(NOT OPT_IS_ENABLE_GTEST)
   return()
 endif()
 
